@@ -26,3 +26,6 @@ Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 **Entregas:** Guardar número de seguimiento, fecha de envío, fecha de entrega real, empresa de transporte y observaciones opcionales. Cada pedido puede tener una o ninguna entrega asociada.  
 
 **Compras a proveedores:** Guardar código único, fecha, estado (Solicitada, En Tránsito, Recibida) y fecha estimada de recepción. Una compra se realiza a un único proveedor; cada compra contiene varios productos con cantidad y precio de coste unitario.
+## 2. Diagrama E/R
+
+Se incluye el diagrama conceptual que representa todas las entidades y relaciones, incluyendo cardinalidades y participaciones.
