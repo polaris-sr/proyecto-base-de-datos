@@ -71,13 +71,13 @@ Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el ema
 Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
 
 - `CLIENTE`  
-### **cod_cliente** (PK)
-### **nombre_razonsocial**
-### **cif_nif** (UNIQUE)
-### **direccion_facturacion**
-### **telefono**
-### **email**
-### **fecha_alta**
+### cod_cliente (PK)
+### nombre_razonsocial
+### cif_nif (UNIQUE)
+### direccion_facturacion
+### telefono
+### email
+### fecha_alta
 CREATE TABLE CLIENTE (
     cod_cliente VARCHAR2(10) PRIMARY KEY,
     nombre_razonsocial VARCHAR2(100) NOT NULL,
