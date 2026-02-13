@@ -71,5 +71,5 @@ Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el ema
 Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
 
 
-
+![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
 
