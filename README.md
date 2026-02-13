@@ -29,4 +29,4 @@ Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 ## 2. Diagrama E/R
 
 Se incluye el diagrama conceptual que representa todas las entidades y relaciones, incluyendo cardinalidades y participaciones.
-![Diagrama E/R](diagramas/diagrama_E-R.PNG)
+![https://github.com/polaris-sr/proyecto-base-de-datos/blob/29a05a417ada0bd3671d4dbc16c4f5f668315762/diagrama_E-R.PNG]
