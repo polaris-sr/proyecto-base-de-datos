@@ -29,4 +29,47 @@ Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 ## 2. Diagrama E/R
 
 Se incluye el diagrama conceptual que representa todas las entidades y relaciones, incluyendo cardinalidades y participaciones.
-![https://github.com/polaris-sr/proyecto-base-de-datos/blob/29a05a417ada0bd3671d4dbc16c4f5f668315762/diagrama_E-R.PNG]
+ ![https://github.com/polaris-sr/proyecto-base-de-datos/blob/29a05a417ada0bd3671d4dbc16c4f5f668315762/diagrama_E-R.PNG]
+ ## 3. Modelo Relacional
+
+Tras diseñar el diagrama Entidad-Relación en draw.io, el siguiente paso fue "aterrizar" esas ideas al Modelo Relacional. Mi objetivo aquí fue transformar los conceptos abstractos en una estructura de tablas real que pudiera funcionar en una base de datos como Oracle. Cada entidad del diagrama E/R se tradujo a tablas con columnas, tipos de datos y restricciones:
+
+- `CLIENTE`  
+
+- `PRODUCTO`  
+
+- `PROVEEDOR`  
+
+- `PEDIDO`  
+
+- `PEDIDO_PRODUCTO`  
+
+- `EMPLEADO`  
+
+- `ENTREGA`  
+
+- `COMPRA`  
+
+- `COMPRA_PRODUCTO`  
+
+> ¿Cómo estructuré la información?
+Para que el sistema de TechSupply Solutions fuera eficiente y no tuviera errores de duplicidad (normalización), dividí la base de datos en tres bloques clave:
+
+Ventas y Clientes: Creé las tablas CLIENTE, PEDIDO y DETALLE_PEDIDO. Un punto importante aquí es que separé los "pedidos" de los "productos" mediante una tabla intermedia. Esto permite que un cliente compre varios productos en un solo ticket y, sobre todo, me permite guardar el precio unitario en el momento de la compra, por si el precio del catálogo sube o baja en el futuro.
+
+Logística y Empleados: Cada pedido está vinculado a un EMPLEADO (quien lo gestiona) y puede tener una ENTREGA. He configurado la relación de entrega para que sea opcional, ya que un pedido recién creado aún no tiene datos de envío.
+
+Compras y Stock: Para que la empresa no se quede sin material, incluí las tablas PROVEEDOR, COMPRA y COMPRA_PRODUCTO. Así se puede controlar qué le compramos a quién y cuándo recibimos la mercancía.
+
+Reglas y Restricciones (Integridad)
+No basta con crear las tablas, hay que asegurarse de que los datos sean correctos. Por eso apliqué:
+
+Claves Primarias y Foráneas: Para que todas las tablas estén conectadas correctamente y no existan, por ejemplo, pedidos de un cliente que no existe.
+
+Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el email) se rellenen siempre.
+
+Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
+
+
+
+
