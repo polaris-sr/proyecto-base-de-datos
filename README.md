@@ -1,6 +1,6 @@
-# proyecto-base-de-datos
+# proyecto base de datos
 "Proyecto de práctica: diseño E/R, modelo relacional y SQL para gestión de pedidos."
-##Enunciado del proyecto
+
 ### Contexto
 La empresa TechSupply Solutions S.L., dedicada a la distribución de material informático, necesita modernizar su sistema de gestión. Actualmente trabajan con hojas de Excel y documentos dispersos, lo que genera errores y pérdidas de información. Como persona en prácticas de DAW, te han asignado la tarea de diseñar e implementar una base de datos relacional que centralice toda la información de clientes, productos, pedidos y proveedores.
 
@@ -69,6 +69,15 @@ Claves Primarias y Foráneas: Para que todas las tablas estén conectadas correc
 Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el email) se rellenen siempre.
 
 Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
+
+CLIENTE
+cod_cliente (PK)
+nombre_razonsocial
+cif_nif
+direccion_facturacion
+telefono
+email
+fecha_alta
 
 
 ![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
