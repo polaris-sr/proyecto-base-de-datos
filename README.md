@@ -70,15 +70,62 @@ Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el ema
 
 Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
 
-CLIENTE
+- `CLIENTE`  
 cod_cliente (PK)
 nombre_razonsocial
-cif_nif
+cif_nif (UNIQUE)
 direccion_facturacion
 telefono
 email
 fecha_alta
+CREATE TABLE CLIENTE (
+    cod_cliente VARCHAR2(10) PRIMARY KEY,
+    nombre_razonsocial VARCHAR2(100) NOT NULL,
+    cif_nif VARCHAR2(15) NOT NULL UNIQUE,
+    direccion_facturacion VARCHAR2(200) NOT NULL,
+    telefono VARCHAR2(15),
+    email VARCHAR2(100) NOT NULL,
+    fecha_alta DATE NOT NULL,
+    CONSTRAINT chk_email_cliente CHECK (email LIKE '%@%')
+  );
+ - `PEDIDO`
+num_pedido (PK)
+fecha_pedido
+estado
+direccion_envio
+fecha_entrega_estimada
+cod_cliente (FK)
+dni_empleado (FK)
+CREATE TABLE PEDIDO (
+    num_pedido VARCHAR2(10) PRIMARY KEY,
+    fecha_pedido DATE NOT NULL,
+    estado VARCHAR2(20) NOT NULL,
+    direccion_envio VARCHAR2(200) NOT NULL,
+    fecha_entrega_estimada DATE,
+    cod_cliente VARCHAR2(10) NOT NULL,
+    dni_empleado VARCHAR2(9) NOT NULL,
+    CONSTRAINT fk_pedido_cliente FOREIGN KEY (cod_cliente) REFERENCES CLIENTE(cod_cliente),
+    CONSTRAINT fk_pedido_empleado FOREIGN KEY (dni_empleado) REFERENCES EMPLEADO(dni),
+    CONSTRAINT chk_estado_pedido CHECK (estado IN ('Pendiente', 'En Preparación', 'Enviado', 'Entregado', 'Cancelado')),
+    CONSTRAINT chk_fecha_entrega CHECK (fecha_entrega_estimada >= fecha_pedido)
+);
 
+- `PEDIDO_PRODUCTO` 
+num_pedido (PK, FK)
+cod_producto (PK, FK)
+cantidad
+precio_unitario
+CREATE TABLE PEDIDO_PRODUCTO (
+    num_pedido VARCHAR2(10),
+    cod_producto VARCHAR2(10),
+    cantidad NUMBER(10) NOT NULL,
+    precio_unitario NUMBER(10,2) NOT NULL,
+    PRIMARY KEY (num_pedido, cod_producto),
+    CONSTRAINT fk_pedido_producto_pedido FOREIGN KEY (num_pedido) REFERENCES PEDIDO(num_pedido),
+    CONSTRAINT fk_pedido_producto_producto FOREIGN KEY (cod_producto) REFERENCES PRODUCTO(cod_producto),
+    CONSTRAINT chk_cantidad_pedido CHECK (cantidad > 0),
+    CONSTRAINT chk_precio_unitario CHECK (precio_unitario >= 0)
+);
 
 ![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
 
