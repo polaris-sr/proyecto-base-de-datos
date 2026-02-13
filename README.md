@@ -126,6 +126,7 @@ CREATE TABLE PEDIDO_PRODUCTO (
     CONSTRAINT chk_cantidad_pedido CHECK (cantidad > 0),
     CONSTRAINT chk_precio_unitario CHECK (precio_unitario >= 0)
 );
-
+**Las relaciones 1:N se implementaron mediante claves foráneas en las tablas dependientes.
+Las relaciones N:M se resolvieron utilizando tablas intermedias con claves primarias compuestas, garantizando la normalización del modelo en Tercera Forma Normal (3FN).**
 ![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
 
