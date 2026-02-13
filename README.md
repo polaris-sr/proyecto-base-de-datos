@@ -71,13 +71,13 @@ Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el ema
 Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
 
 - `CLIENTE`  
- "cod_cliente (PK)"
- "nombre_razonsocial"
- "cif_nif (UNIQUE)"
- "direccion_facturacion"
- "telefono"
- "email"
- "fecha_alta"
+cod_cliente (PK)
+nombre_razonsocial
+cif_nif (UNIQUE)
+direccion_facturacion
+telefono
+email
+fecha_alta
 CREATE TABLE CLIENTE (
     cod_cliente VARCHAR2(10) PRIMARY KEY,
     nombre_razonsocial VARCHAR2(100) NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE PEDIDO_PRODUCTO (
     CONSTRAINT chk_cantidad_pedido CHECK (cantidad > 0),
     CONSTRAINT chk_precio_unitario CHECK (precio_unitario >= 0)
 );
-**Las relaciones 1:N se implementaron mediante claves foráneas en las tablas dependientes.
-Las relaciones N:M se resolvieron utilizando tablas intermedias con claves primarias compuestas, garantizando la normalización del modelo en Tercera Forma Normal (3FN).**
+Las relaciones 1:N se implementaron mediante claves foráneas en las tablas dependientes.
+Las relaciones N:M se resolvieron utilizando tablas intermedias con claves primarias compuestas, garantizando la normalización del modelo en Tercera Forma Normal (3FN).
 ![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
 
