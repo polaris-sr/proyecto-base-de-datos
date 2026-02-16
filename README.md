@@ -1,6 +1,8 @@
 # proyecto base de datos
 "Proyecto de práctica: diseño E/R, modelo relacional y SQL para gestión de pedidos."
+
 ---
+
 ### Contexto
 La empresa TechSupply Solutions S.L., dedicada a la distribución de material informático, necesita modernizar su sistema de gestión. Actualmente trabajan con hojas de Excel y documentos dispersos, lo que genera errores y pérdidas de información. Como persona en prácticas de DAW, te han asignado la tarea de diseñar e implementar una base de datos relacional que centralice toda la información de clientes, productos, pedidos y proveedores.
 
@@ -26,6 +28,7 @@ Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 **Entregas:** Guardar número de seguimiento, fecha de envío, fecha de entrega real, empresa de transporte y observaciones opcionales. Cada pedido puede tener una o ninguna entrega asociada.  
 
 **Compras a proveedores:** Guardar código único, fecha, estado (Solicitada, En Tránsito, Recibida) y fecha estimada de recepción. Una compra se realiza a un único proveedor; cada compra contiene varios productos con cantidad y precio de coste unitario.
+
 ---
 
 ## 2. Diagrama E/R
@@ -33,6 +36,7 @@ Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 Se incluye el diagrama conceptual que representa todas las entidades y relaciones, incluyendo cardinalidades y participaciones.
 
  ![https://github.com/polaris-sr/proyecto-base-de-datos/blob/29a05a417ada0bd3671d4dbc16c4f5f668315762/diagrama_E-R.PNG]
+
 ---
  
  ## 3. Modelo Relacional
@@ -76,12 +80,19 @@ Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el ema
 Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
 
 - `CLIENTE`  
+
 cod_cliente (PK)
+
 nombre_razonsocial
+
 cif_nif (UNIQUE)
+
 direccion_facturacion
+
 telefono
+
 email
+
 fecha_alta
 
 CREATE TABLE CLIENTE (
@@ -129,8 +140,11 @@ CREATE TABLE PEDIDO (
 num_pedido (PK, FK)
 
 cod_producto (PK, FK)
+
 cantidad
+
 precio_unitario
+
 CREATE TABLE PEDIDO_PRODUCTO (
     num_pedido VARCHAR2(10),
     cod_producto VARCHAR2(10),
@@ -142,7 +156,9 @@ CREATE TABLE PEDIDO_PRODUCTO (
     CONSTRAINT chk_cantidad_pedido CHECK (cantidad > 0),
     CONSTRAINT chk_precio_unitario CHECK (precio_unitario >= 0)
 );
-Las relaciones 1:N se implementaron mediante claves foráneas en las tablas dependientes.
-Las relaciones N:M se resolvieron utilizando tablas intermedias con claves primarias compuestas, garantizando la normalización del modelo en Tercera Forma Normal (3FN).
+
+-Las relaciones 1:N se implementaron mediante claves foráneas en las tablas dependientes.
+-Las relaciones N:M se resolvieron utilizando tablas intermedias, garantizando la normalización del modelo en Tercera Forma Normal (3FN).
+
 ![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
 
