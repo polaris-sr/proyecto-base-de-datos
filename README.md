@@ -1,6 +1,6 @@
 # proyecto base de datos
 "Proyecto de práctica: diseño E/R, modelo relacional y SQL para gestión de pedidos."
-
+---
 ### Contexto
 La empresa TechSupply Solutions S.L., dedicada a la distribución de material informático, necesita modernizar su sistema de gestión. Actualmente trabajan con hojas de Excel y documentos dispersos, lo que genera errores y pérdidas de información. Como persona en prácticas de DAW, te han asignado la tarea de diseñar e implementar una base de datos relacional que centralice toda la información de clientes, productos, pedidos y proveedores.
 
@@ -26,10 +26,15 @@ Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 **Entregas:** Guardar número de seguimiento, fecha de envío, fecha de entrega real, empresa de transporte y observaciones opcionales. Cada pedido puede tener una o ninguna entrega asociada.  
 
 **Compras a proveedores:** Guardar código único, fecha, estado (Solicitada, En Tránsito, Recibida) y fecha estimada de recepción. Una compra se realiza a un único proveedor; cada compra contiene varios productos con cantidad y precio de coste unitario.
+---
+
 ## 2. Diagrama E/R
 
 Se incluye el diagrama conceptual que representa todas las entidades y relaciones, incluyendo cardinalidades y participaciones.
+
  ![https://github.com/polaris-sr/proyecto-base-de-datos/blob/29a05a417ada0bd3671d4dbc16c4f5f668315762/diagrama_E-R.PNG]
+---
+ 
  ## 3. Modelo Relacional
 
 Tras diseñar el diagrama Entidad-Relación en draw.io, el siguiente paso fue "aterrizar" esas ideas al Modelo Relacional. Mi objetivo aquí fue transformar los conceptos abstractos en una estructura de tablas real que pudiera funcionar en una base de datos como Oracle. Cada entidad del diagrama E/R se tradujo a tablas con columnas, tipos de datos y restricciones:
@@ -78,6 +83,7 @@ direccion_facturacion
 telefono
 email
 fecha_alta
+
 CREATE TABLE CLIENTE (
     cod_cliente VARCHAR2(10) PRIMARY KEY,
     nombre_razonsocial VARCHAR2(100) NOT NULL,
@@ -89,13 +95,21 @@ CREATE TABLE CLIENTE (
     CONSTRAINT chk_email_cliente CHECK (email LIKE '%@%')
   );
  - `PEDIDO`
+
 num_pedido (PK)
+
 fecha_pedido
+
 estado
+
 direccion_envio
+
 fecha_entrega_estimada
+
 cod_cliente (FK)
+
 dni_empleado (FK)
+
 CREATE TABLE PEDIDO (
     num_pedido VARCHAR2(10) PRIMARY KEY,
     fecha_pedido DATE NOT NULL,
@@ -111,7 +125,9 @@ CREATE TABLE PEDIDO (
 );
 
 - `PEDIDO_PRODUCTO` 
+
 num_pedido (PK, FK)
+
 cod_producto (PK, FK)
 cantidad
 precio_unitario
