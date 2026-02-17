@@ -61,7 +61,7 @@ Tras diseñar el diagrama Entidad-Relación en draw.io, el siguiente paso fue "a
 
 - `COMPRA_PRODUCTO`  
 
- ¿Cómo estructuré la información?
+ **¿Cómo estructuré la información?**
 Para que el sistema de TechSupply Solutions fuera eficiente y no tuviera errores de duplicidad (normalización), dividí la base de datos en tres bloques clave:
 
 -Ventas y Clientes: Creé las tablas CLIENTE, PEDIDO y DETALLE_PEDIDO. Un punto importante aquí es que separé los "pedidos" de los "productos" mediante una tabla intermedia. Esto permite que un cliente compre varios productos en un solo ticket y, sobre todo, me permite guardar el precio unitario en el momento de la compra, por si el precio del catálogo sube o baja en el futuro.
@@ -78,6 +78,8 @@ No basta con crear las tablas, hay que asegurarse de que los datos sean correcto
 -Restricciones NOT NULL: Para obligar a que datos críticos (como el CIF o el email) se rellenen siempre.
 
 -Checks de Validación: Añadí reglas sencillas pero necesarias, como que el stock nunca sea negativo o que el precio siempre sea mayor que cero.  
+
+---
 
 - `CLIENTE`  
 
