@@ -81,6 +81,8 @@ No basta con crear las tablas, hay que asegurarse de que los datos sean correcto
 
 ---
 
+## 🧠 Tablas y consultas
+
 - `CLIENTE`  
 
 cod_cliente (PK)
@@ -163,6 +165,31 @@ CREATE TABLE PEDIDO_PRODUCTO (
 
 -Las relaciones N:M se resolvieron utilizando tablas intermedias, garantizando la normalización del modelo en Tercera Forma Normal (3FN).
 
+!https://github.com/polaris-sr/proyecto-base-de-datos/blob/fad82f43bce225cafb3e8a3f253e67f3815fa119/sql/tablas
+
 ![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
 
-!https://github.com/polaris-sr/proyecto-base-de-datos/blob/fad82f43bce225cafb3e8a3f253e67f3815fa119/sql/tablas
+---
+
+## 🚀 Tecnologias utilizadas
+
+-Oracle SQL
+
+-draw.io
+
+-GitHub
+
+---
+
+## 📌 Conclusiones
+
+Este proyecto me permitió aplicar conceptos fundamentales de bases de datos como:
+
+- Diseño E/R
+- Transformación a modelo relacional
+- Normalización hasta 3FN
+- Implementación en SQL
+- Aplicación de restricciones de integridad
+- Diseño de consultas optimizadas
+
+La base de datos resultante permite gestionar de forma estructurada el ciclo completo de ventas y compras de la empresa.
