@@ -1,0 +1,74 @@
+CLIENTE
+cod_cliente (PK)
+nombre_razonsocial
+cif_nif (UNIQUE)
+direccion_facturacion
+telefono
+email
+fecha_alta
+
+PROVEEDOR
+cod_proveedor (PK)
+nombre_empresa
+cif (UNIQUE)
+pais_origen
+telefono
+email
+
+EMPLEADO
+dni (PK)
+nombre_completo
+departamento
+telefono
+email
+fecha_incorporacion
+
+PRODUCTO
+cod_producto (PK)
+nombre
+descripcion
+categoria
+precio_venta
+stock
+cod_proveedor (FK → PROVEEDOR)
+
+PEDIDO
+num_pedido (PK)
+fecha_pedido
+estado
+direccion_envio
+fecha_entrega_estimada
+cod_cliente (FK → CLIENTE)
+dni_empleado (FK → EMPLEADO)
+
+COMPRA
+cod_compra (PK)
+fecha_compra
+estado
+fecha_recepcion_estimada
+cod_proveedor (FK → PROVEEDOR)
+
+ENTREGA
+num_seguimiento (PK)
+fecha_envio
+fecha_entrega_real
+empresa_transporte
+observaciones
+num_pedido (FK → PEDIDO, UNIQUE)
+
+PEDIDO_PRODUCTO (Tabla intermedia N:M)
+
+num_pedido (PK, FK → PEDIDO)
+cod_producto (PK, FK → PRODUCTO)
+cantidad
+precio_unitario
+
+COMPRA_PRODUCTO (Tabla intermedia N:M)
+cod_compra (PK parte 1, FK → COMPRA)
+cod_producto (PK parte 2, FK → PRODUCTO)
+cantidad
+precio_coste_unitario
+
+
+
+
