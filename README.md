@@ -3,10 +3,10 @@
 
 ---
 
-### Contexto
+### 🏢 Contexto
 La empresa TechSupply Solutions S.L., dedicada a la distribución de material informático, necesita modernizar su sistema de gestión. Actualmente trabajan con hojas de Excel y documentos dispersos, lo que genera errores y pérdidas de información. Como persona en prácticas de DAW, te han asignado la tarea de diseñar e implementar una base de datos relacional que centralice toda la información de clientes, productos, pedidos y proveedores.
 
-### Situación
+### 🎯 Objetivo
 Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 
 *"Necesitamos que diseñes una base de datos desde cero para nuestro sistema de gestión comercial. He recopilado los requisitos del departamento de ventas y compras. Aquí te detallo lo que necesitamos:"*
@@ -31,7 +31,7 @@ Tu supervisor te ha convocado a una reunión donde te explica lo siguiente:
 
 ---
 
-## 2. Diagrama E/R
+## 📊 Diagrama E/R
 
 Se incluye el diagrama conceptual que representa todas las entidades y relaciones, incluyendo cardinalidades y participaciones.
 
@@ -39,7 +39,7 @@ Se incluye el diagrama conceptual que representa todas las entidades y relacione
 
 ---
  
- ## 3. Modelo Relacional
+ ## 🗃️ Modelo Relacional
 
 Tras diseñar el diagrama Entidad-Relación en draw.io, el siguiente paso fue "aterrizar" esas ideas al Modelo Relacional. Mi objetivo aquí fue transformar los conceptos abstractos en una estructura de tablas real que pudiera funcionar en una base de datos como Oracle. Cada entidad del diagrama E/R se tradujo a tablas con columnas, tipos de datos y restricciones:
 
@@ -61,7 +61,7 @@ Tras diseñar el diagrama Entidad-Relación en draw.io, el siguiente paso fue "a
 
 - `COMPRA_PRODUCTO`  
 
-> ¿Cómo estructuré la información?
+ ¿Cómo estructuré la información?
 Para que el sistema de TechSupply Solutions fuera eficiente y no tuviera errores de duplicidad (normalización), dividí la base de datos en tres bloques clave:
 
 -Ventas y Clientes: Creé las tablas CLIENTE, PEDIDO y DETALLE_PEDIDO. Un punto importante aquí es que separé los "pedidos" de los "productos" mediante una tabla intermedia. Esto permite que un cliente compre varios productos en un solo ticket y, sobre todo, me permite guardar el precio unitario en el momento de la compra, por si el precio del catálogo sube o baja en el futuro.
