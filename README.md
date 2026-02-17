@@ -165,3 +165,4 @@ CREATE TABLE PEDIDO_PRODUCTO (
 
 ![https://github.com/polaris-sr/proyecto-base-de-datos/tree/cd6a98bee3dd7aa4d1e78c7b58185b2669a47a4d/sql]
 
+!https://github.com/polaris-sr/proyecto-base-de-datos/blob/fad82f43bce225cafb3e8a3f253e67f3815fa119/sql/tablas
